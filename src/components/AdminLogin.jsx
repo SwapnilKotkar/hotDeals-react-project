@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import { NavLink } from 'react-router-dom';
 
 let AdminLogin = () => {
     let link = "";
@@ -9,7 +9,6 @@ let AdminLogin = () => {
                     <h2 class="text-center">Sign in</h2>		
                     <div class="text-center social-btn">
                         <a href={link} class="btn btn-primary btn-block"> Sign in with <b>Facebook</b></a>
-                        {/* <a href={link} class="btn btn-info btn-block">Sign in with <b>Twitter</b></a> */}
                         <a href={link} class="btn btn-danger btn-block"> Sign in with <b>Google</b></a>
                     </div>
                     <div class="or-seperator"><i>or</i></div>
@@ -30,9 +29,12 @@ let AdminLogin = () => {
                         <label class="float-left form-check-label p-2"><input type="checkbox" /> Remember me</label>
                         <a href={link} class="float-right text-success">Forgot Password?</a>
                     </div>  
+                    <div className="container-sm d-flex justify-content-center">
+                        <NavLink to="/" className="nav-link p-2 text-muted text-decoration-underline">Home</NavLink>
+                        <NavLink className="nav-link p-2 text-muted text-decoration-underline" to="/login">User Login</NavLink>
+                </div> 
                 </form>        
             </div>
-            <Footer/>
         </>
     );
 }

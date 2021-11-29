@@ -9,7 +9,7 @@ let Deals = () =>{
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 justify-content-start"> 
                         {DealsData.map((val) => {
                             return (
-                                <DealsCard dealName={val.name} dealImage={val.image} dealPrice={val.price} />
+                                <DealsCard dealName={val.name} dealImage={val.image} dealPrice={val.price} dealLink ={val.link} />
                             )
                         })}
                      </div>

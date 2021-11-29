@@ -1,6 +1,5 @@
 
 let DealsCard = (props) =>{
-    let link = "";
     return(
         <>
             <div class="col col-12 mb-4 deal_details">
@@ -13,7 +12,7 @@ let DealsCard = (props) =>{
                           </div>
                       </div>
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href={link}>Get Deal</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href={props.dealLink}>Get Deal</a></div>
                       </div>
                   </div>
               </div>

@@ -22,7 +22,7 @@ let Navbar = () =>{
                     <NavLink className="nav-link" to="/adminlogin">Admin Login</NavLink>
                     </li>  
                     <li>
-                    <NavLink className="nav-link" to="/submitdealform"><button className="btn btn-info" type="submit" >Submit Deal</button></NavLink>                
+                    <NavLink className="nav-link p-1" to="/submitdealform"><button className="btn btn-info" type="submit" >Submit Deal</button></NavLink>                
                     </li>         
                 </ul>
                 </div>

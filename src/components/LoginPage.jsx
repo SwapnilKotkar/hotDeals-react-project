@@ -31,10 +31,14 @@ let LoginPage = () => {
                         <label class="float-left form-check-label p-2"><input type="checkbox" /> Remember me</label>
                         <a href={link} class="float-right text-success">Forgot Password?</a>
                     </div>  
-                    <div class="hint-text mt-3">Don't have an account? <NavLink to="/signup" class="text-success">Register Now!</NavLink></div>                
+                    <div class="hint-text mt-3">Don't have an account? <NavLink to="/signup" class="text-success">Register Now!</NavLink></div>     
+                    <div className="container-sm d-flex justify-content-center">
+                        <NavLink to="/" className="nav-link p-2 text-muted text-decoration-underline">Home</NavLink>
+                        <NavLink to="/adminlogin" className="nav-link p-2 text-muted text-decoration-underline">Admin Login</NavLink>
+                </div>           
                 </form>        
             </div>
-            <Footer/>
+            
         </>
     );
 }

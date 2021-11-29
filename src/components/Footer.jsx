@@ -1,5 +1,7 @@
+import { NavLink } from 'react-router-dom';
+
+
 let Footer = () =>{
-    let link = "";
     return(
         <>
             <div className="container-fluid footer_container bg-dark">
@@ -12,10 +14,9 @@ let Footer = () =>{
                     <div className="col-1">
                     <h5>Menu</h5>
                     <ul className="nav flex-column footer_menu">
-                        <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-muted">Home</a></li>
-                        <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-muted">Deals</a></li>
-                        <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-muted">User Login</a></li>
-                        <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-muted">Admin Login</a></li>
+                        <li className="nav-item mb-2"><NavLink to="/" className="nav-link p-0 text-muted">Home</NavLink></li>
+                        <li className="nav-item mb-2"><NavLink to="/login" className="nav-link p-0 text-muted">User Login</NavLink></li>
+                        <li className="nav-item mb-2"><NavLink to="/adminlogin" className="nav-link p-0 text-muted">Admin Login</NavLink></li>
                     </ul>
                     </div>
             
@@ -34,11 +35,6 @@ let Footer = () =>{
             
                 <div className="d-flex justify-content-center py-4 my-4 border-top footer_copyright">
                     <p className="copyright">&copy; hotDeals 2021, Inc. All rights reserved.</p>
-                    {/* <!-- <ul className="d-flex">
-                    <li className="ms-3"><i className="bi bi-facebook" style="color: white;"></i></li>
-                    <li className="ms-3"><a className="link-dark" href={link}><svg className="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                    <li className="ms-3"><a className="link-dark" href={link}><svg className="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-                    </ul> --> */}
                 </div>
                 </footer>
             </div>
