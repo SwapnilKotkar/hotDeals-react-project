@@ -1,27 +1,43 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Footer from "./Footer";
 
 let LoginPage = () => {
     let link = "";
+
+    let [login, setLogin] = useState({
+       username: "",
+       password: "" 
+    });
+
+    let loginInput = (event) =>{
+        let {name, value} = event.target;
+        setLogin({...login, [name]: value});
+    }
+
+    let handleSubmit = (event) => {
+        event.preventDefault();
+        setLogin({username: "", password: ""});
+    }
+
+
     return(
         <>
             <div class="login-form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2 class="text-center">Sign in</h2>		
                     <div class="text-center social-btn">
                         <a href={link} class="btn btn-primary btn-block">Sign in with <b>Facebook</b></a>
-                        {/* <a href={link} class="btn btn-info btn-block"> Sign in with <b>Twitter</b></a> */}
                         <a href={link} class="btn btn-danger btn-block">Sign in with <b>Google</b></a>
                     </div>
                     <div class="or-seperator"><i>or</i></div>
                     <div class="form-group mb-2">
                         <div class="input-group">                
-                            <input type="text" class="form-control" name="username" placeholder="Username" required="required" />
+                            <input type="text" class="form-control" name="username" placeholder="Username" value={login.username} onChange={loginInput} required="required" />
                         </div>
                     </div>
                     <div class="form-group mb-2">
                         <div class="input-group">                           
-                            <input type="password" class="form-control" name="password" placeholder="Password" required="required" />
+                            <input type="password" class="form-control" name="password" placeholder="Password" value={login.password} onChange={loginInput} required="required" />
                         </div>
                     </div>        
                     <div class="form-group">

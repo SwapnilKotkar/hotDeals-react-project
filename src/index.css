@@ -25,14 +25,17 @@ code {
 
  .footer_container{
    background-color: white;
-   color: cyan;
+   color: white;
+   font-weight: 700;
  }
- .footer_container .footer_menu li{
-  color: lightgray;
-  /* text-decoration: underline ; */
+ .footer_container .footer_menu li .nav-link{
+  color: white !important;
+  font-weight: 200;
+  text-decoration: underline;
  }
  .footer_container .tagline, .footer_container .newsletter, .footer_container .copyright{
-   color: white
+   color: white;
+  font-weight: 100;
  }
  .footer_content{
    padding-bottom: 0px !important;

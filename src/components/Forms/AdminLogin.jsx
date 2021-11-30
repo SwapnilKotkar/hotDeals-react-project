@@ -1,11 +1,28 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 let AdminLogin = () => {
     let link = "";
+
+    let [adminLogin, setadminLogin] = useState({
+        username: "",
+        password: "" 
+     });
+ 
+     let adminloginInput = (event) =>{
+         let {name, value} = event.target;
+         setadminLogin({...adminLogin, [name]: value});
+     }
+ 
+     let handleSubmit = (event) => {
+         event.preventDefault();
+         setadminLogin({username: "", password: ""});
+     }
+
     return(
         <>
             <div class="login-form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2 class="text-center">Sign in</h2>		
                     <div class="text-center social-btn">
                         <a href={link} class="btn btn-primary btn-block"> Sign in with <b>Facebook</b></a>
@@ -14,12 +31,12 @@ let AdminLogin = () => {
                     <div class="or-seperator"><i>or</i></div>
                     <div class="form-group mb-2">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required="required" />
+                            <input type="text" class="form-control" name="username" placeholder="Username" value={adminLogin.username} onChange={adminloginInput} required="required" />
                         </div>
                     </div>
                     <div class="form-group mb-2">
                         <div class="input-group">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required="required" />
+                            <input type="password" class="form-control" name="password" placeholder="Password" value={adminLogin.password} onChange={adminloginInput} required="required" />
                         </div>
                     </div>        
                     <div class="form-group">
