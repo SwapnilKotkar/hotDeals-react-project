@@ -43,6 +43,9 @@ code {
  .footer_container .footer_copyright{
    margin-bottom: 0px !important;
  }
+.warning{
+  color: red;
+}
 
  .login-form {
   width: 340px;
