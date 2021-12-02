@@ -1,5 +1,4 @@
 import {NavLink} from "react-router-dom";
-// import useForm from './useForm';
 import React, {useState} from 'react';
 import { useForm } from "react-hook-form";
 
@@ -13,7 +12,7 @@ let SignUpPage = () => {
         password:""
     });
 
-    const [record, setRecord]=useState([]);
+    const [signinRecord, setSigninRecord]=useState([]);
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -23,7 +22,13 @@ let SignUpPage = () => {
 
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = () => {
-        setRecord([...record, values]);
+        setSigninRecord([...signinRecord, values]);
+        setValues({
+            firstName:"",
+            lastName:"",
+            email:"",
+            password:""
+        });        
     };
     
 
@@ -56,7 +61,7 @@ let SignUpPage = () => {
                     <button type="submit" className="btn btn-success btn-lg btn-block">Register Now</button>
                 </div>
                 </form>
-                <div className="text-center mt-3">Already have an account? <NavLink to="/login"><span style={{color:"blue" }} >Sign in</span></NavLink></div>
+                <div className="text-center mt-3">Already have an account? <NavLink to="/userlogin"><span style={{color:"blue" }} >Sign in</span></NavLink></div>
                 <div className="container-sm d-flex justify-content-center">
                     <NavLink to="/" className="nav-link p-2 text-muted">Home</NavLink>
                     <NavLink to="/adminlogin" className="nav-link p-2 text-muted">Admin Login</NavLink>

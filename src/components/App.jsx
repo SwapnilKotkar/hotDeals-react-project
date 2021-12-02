@@ -12,7 +12,7 @@ let App = () =>{
         <>
         <Routes>
             <Route exact path='/' element={<HomePage/>} />
-            <Route exact path='/login' element={<Login/>} />
+            <Route exact path='/userlogin' element={<Login/>} />
             <Route exact path='/signup' element={<SignUpPage/>} />
             <Route exact path='/adminlogin' element={<AdminLogin/>} />
             <Route exact path='/submitdealform' element={<DealSubmit/>} />

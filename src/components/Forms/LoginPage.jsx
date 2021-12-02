@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+
 
 let LoginPage = () => {
     let link = "";
@@ -9,44 +11,49 @@ let LoginPage = () => {
        password: "" 
     });
 
-    let loginInput = (event) =>{
+    const [loginRecord, setLoginRecord] = useState([]);
+
+    let handleChange = (event) =>{
         let {name, value} = event.target;
         setLogin({...login, [name]: value});
     }
 
-    let handleSubmit = (event) => {
-        event.preventDefault();
-        setLogin({username: "", password: ""});
+    const { register, handleSubmit, errors } = useForm();
+    const onSubmit = () =>{
+        setLoginRecord([...loginRecord, login])
+        setLogin({
+            username: "",
+            password: "" 
+         });
     }
 
 
     return(
         <>
             <div class="login-form">
-                <form onSubmit={handleSubmit}>
-                    <h2 class="text-center">Sign in</h2>		
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2 class="text-center">User Login</h2>		
                     <div class="text-center social-btn">
-                        <a href={link} class="btn btn-primary btn-block">Sign in with <b>Facebook</b></a>
-                        <a href={link} class="btn btn-danger btn-block">Sign in with <b>Google</b></a>
+                        <a href={link} class="container btn btn-primary btn-block text-center">Sign in with <b>Facebook</b></a>
+                        <a href={link} class="container btn btn-danger btn-block text-center">Sign in with <b>Google</b></a>
                     </div>
                     <div class="or-seperator"><i>or</i></div>
-                    <div class="form-group mb-2">
-                        <div class="input-group">                
-                            <input type="text" class="form-control" name="username" placeholder="Username" value={login.username} onChange={loginInput} required="required" />
-                        </div>
-                    </div>
-                    <div class="form-group mb-2">
-                        <div class="input-group">                           
-                            <input type="password" class="form-control" name="password" placeholder="Password" value={login.password} onChange={loginInput} required="required" />
-                        </div>
-                    </div>        
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
+                            <input type="text" class="form-control" name="username" placeholder="Username" ref={register({ required: "user name is required" })} value={login.username} onChange={handleChange} />
+                            <p className="warning">{errors.username?.message}</p>
                     </div>
+                    <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password" ref={register({ required: "password is required" })} value={login.password} onChange={handleChange} />
+                            <p className="warning">{errors.password?.message}</p>
+                    </div>   
                     <div class="clearfix ">
-                        <label class="float-left form-check-label p-2"><input type="checkbox" /> Remember me</label>
+                        <label class="float-left form-check-label p-2"><input type="checkbox" required /> Remember me</label>
                         <a href={link} class="float-right text-success">Forgot Password?</a>
-                    </div>  
+                    </div>       
+                    <div class="form-group">
+                        <button type="submit" class="container btn btn-success btn-block login-btn">Sign in</button>
+                    </div>
+                    
                     <div class="hint-text mt-3">Don't have an account? <NavLink to="/signup" class="text-success">Register Now!</NavLink></div>     
                     <div className="container-sm d-flex justify-content-center">
                         <NavLink to="/" className="nav-link p-2 text-muted text-decoration-underline">Home</NavLink>

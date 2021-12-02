@@ -185,6 +185,9 @@ code {
 .signup-form form a:hover {
 	text-decoration: underline;
 } 
+.deal_submit_form{
+  background-color: white;
+}
 
  @media screen and (max-width: 480px) {
    .deal_details{

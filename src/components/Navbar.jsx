@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-let Navbar = () =>{
-    let link = "#";
+const Navbar = () =>{
+    const link = "#";
+    
     return(
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,7 +17,7 @@ let Navbar = () =>{
                     <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link" to="/login">User Login</NavLink>
+                    <NavLink className="nav-link" to="/userlogin">User Login</NavLink>
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/adminlogin">Admin Login</NavLink>
