@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 
-let Footer = () =>{
+const Footer = () =>{
     return(
         <>
             <div className="container-fluid footer_container bg-dark">
@@ -15,7 +15,7 @@ let Footer = () =>{
                     <h5>Menu</h5>
                     <ul className="nav flex-column footer_menu">
                         <li className="nav-item mb-2"><NavLink to="/" className="nav-link p-0 text-muted">Home</NavLink></li>
-                        <li className="nav-item mb-2"><NavLink to="/login" className="nav-link p-0 text-muted">User Login</NavLink></li>
+                        <li className="nav-item mb-2"><NavLink to="/userlogin" className="nav-link p-0 text-muted">User Login</NavLink></li>
                         <li className="nav-item mb-2"><NavLink to="/adminlogin" className="nav-link p-0 text-muted">Admin Login</NavLink></li>
                     </ul>
                     </div>

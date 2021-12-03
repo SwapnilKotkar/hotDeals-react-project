@@ -1,5 +1,5 @@
 
-let DealsCard = (props) =>{
+const DealsCard = (props) =>{
     return(
         <>
             <div class="col col-12 mb-4 deal_details">

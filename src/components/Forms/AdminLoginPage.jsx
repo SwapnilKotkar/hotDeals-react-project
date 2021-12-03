@@ -3,18 +3,18 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
 
-let AdminLogin = () => {
-    let link = "";
+const AdminLoginPage = () => {
+    const link = "";
 
-    let [adminLogin, setAdminLogin] = useState({
+    const [adminLogin, setAdminLogin] = useState({
         username: "",
         password: "" 
      });
 
     const [adminLloginRecord, setAdminLoginRecord] = useState([]);
  
-     let handleChange = (event) =>{
-         let {name, value} = event.target;
+     const handleChange = (event) =>{
+         const {name, value} = event.target;
          setAdminLogin({...adminLogin, [name]: value});
      }
 
@@ -32,11 +32,11 @@ let AdminLogin = () => {
             <div class="login-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 class="text-center">Admin Login</h2>		
-                    <div class="text-center social-btn">
+                    {/* <div class="text-center social-btn">
                         <a href={link} class="container btn btn-primary btn-block text-center"> Sign in with <b>Facebook</b></a>
                         <a href={link} class="container btn btn-danger btn-block text-center"> Sign in with <b>Google</b></a>
                     </div>
-                    <div class="or-seperator"><i>or</i></div>
+                    <div class="or-seperator"><i>or</i></div> */}
                     <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Username" ref={register({ required: "user name is required" })} value={adminLogin.username} onChange={handleChange} />
                             <p className="warning">{errors.username?.message}</p>
@@ -63,4 +63,4 @@ let AdminLogin = () => {
     );
 }
 
-export default AdminLogin;
+export default AdminLoginPage;

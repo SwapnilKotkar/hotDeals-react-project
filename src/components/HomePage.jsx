@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Deals from './Deals';
 import Footer from "./Footer";
 
-let HomePage = () =>{
+const HomePage = () =>{
     return(
         <>
         <Navbar/>

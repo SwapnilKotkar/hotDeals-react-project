@@ -188,6 +188,14 @@ code {
 .deal_submit_form{
   background-color: white;
 }
+.category_name{
+  display: inline-flex;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin: 0 5px;
+  padding: 3px 5px;
+}
 
  @media screen and (max-width: 480px) {
    .deal_details{

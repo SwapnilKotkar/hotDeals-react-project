@@ -1,7 +1,7 @@
 import DealsCard from "./DealsCard";
 import DealsData from "./DealsData";
 
-let Deals = () =>{
+const Deals = () =>{
     return(
         <>
             <section class="py-2 deals_list">

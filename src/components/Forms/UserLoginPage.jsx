@@ -3,18 +3,18 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
 
-let LoginPage = () => {
-    let link = "";
+const UserLoginPage = () => {
+    const link = "";
 
-    let [login, setLogin] = useState({
+    const [login, setLogin] = useState({
        username: "",
        password: "" 
     });
 
     const [loginRecord, setLoginRecord] = useState([]);
 
-    let handleChange = (event) =>{
-        let {name, value} = event.target;
+    const handleChange = (event) =>{
+        const {name, value} = event.target;
         setLogin({...login, [name]: value});
     }
 
@@ -33,11 +33,11 @@ let LoginPage = () => {
             <div class="login-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 class="text-center">User Login</h2>		
-                    <div class="text-center social-btn">
+                    {/* <div class="text-center social-btn">
                         <a href={link} class="container btn btn-primary btn-block text-center">Sign in with <b>Facebook</b></a>
                         <a href={link} class="container btn btn-danger btn-block text-center">Sign in with <b>Google</b></a>
                     </div>
-                    <div class="or-seperator"><i>or</i></div>
+                    <div class="or-seperator"><i>or</i></div> */}
                     <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Username" ref={register({ required: "user name is required" })} value={login.username} onChange={handleChange} />
                             <p className="warning">{errors.username?.message}</p>
@@ -46,7 +46,7 @@ let LoginPage = () => {
                             <input type="password" class="form-control" name="password" placeholder="Password" ref={register({ required: "password is required" })} value={login.password} onChange={handleChange} />
                             <p className="warning">{errors.password?.message}</p>
                     </div>   
-                    <div class="clearfix ">
+                    <div class="clearfix">
                         <label class="float-left form-check-label p-2"><input type="checkbox" required /> Remember me</label>
                         <a href={link} class="float-right text-success">Forgot Password?</a>
                     </div>       
@@ -60,10 +60,9 @@ let LoginPage = () => {
                         <NavLink to="/adminlogin" className="nav-link p-2 text-muted text-decoration-underline">Admin Login</NavLink>
                 </div>           
                 </form>        
-            </div>
-            
+            </div>            
         </>
     );
 }
 
-export default LoginPage;
+export default UserLoginPage;

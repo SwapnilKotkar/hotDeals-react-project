@@ -31,13 +31,12 @@ let SignUpPage = () => {
         });        
     };
     
-
     return(
         <>
-            <div className="signup-form">
-                <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <div className="container-sm signup-form d-flex justify-content-center">
+                <form className="col-sm-4" onSubmit={handleSubmit(onSubmit)} noValidate>
                 <h2>Register</h2>
-                <p className="hint-text">Create your account. It's free and only takes a minute.</p>
+                <p className="hint-text">Create your account. It's only takes a minute.</p>
                  <div className="form-group">
                     <input type="text" className="form-control" name="firstName" placeholder="First Name" ref={register({ required: "first name is required" })} value={values.firstName} onChange={handleChange} />
                     <p className="warning">{errors.firstName?.message}</p>
@@ -58,14 +57,16 @@ let SignUpPage = () => {
                     <label className="form-check-label"><input type="checkbox" required /> I accept the <a href={link}>Terms of Use</a> &amp; <a href={link}>Privacy Policy</a></label>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-success btn-lg btn-block">Register Now</button>
+                    <button type="submit" className="container btn btn-success btn-lg btn-block">Register Now</button>
                 </div>
-                </form>
                 <div className="text-center mt-3">Already have an account? <NavLink to="/userlogin"><span style={{color:"blue" }} >Sign in</span></NavLink></div>
                 <div className="container-sm d-flex justify-content-center">
-                    <NavLink to="/" className="nav-link p-2 text-muted">Home</NavLink>
-                    <NavLink to="/adminlogin" className="nav-link p-2 text-muted">Admin Login</NavLink>
+                    <NavLink to="/" className="nav-link p-2 text-muted text-decoration-underline">Home</NavLink>
+                    <NavLink className="nav-link p-2 text-muted text-decoration-underline" to="/userlogin">User Login</NavLink>
+                    <NavLink to="/adminlogin" className="nav-link p-2 text-muted text-decoration-underline">Admin Login</NavLink>
                 </div>
+                </form>
+                
             </div>
         </>
     );
