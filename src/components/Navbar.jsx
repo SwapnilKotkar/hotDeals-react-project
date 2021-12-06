@@ -24,7 +24,7 @@ const Navbar = () =>{
                     <NavLink className="nav-link" to="/adminlogin">Admin Login</NavLink>
                     </li>  
                     <li>
-                    <NavLink className="nav-link p-1" to="/submitdealform"><button className="btn btn-info" type="submit" >Submit Deal</button></NavLink>                
+                    <NavLink className="nav-link p-1" to="/submitdeal"><button className="btn btn-info" type="submit" >Submit Deal</button></NavLink>                
                     </li>         
                 </ul>
                 </div>
@@ -55,7 +55,7 @@ const Navbar = () =>{
                 Category
                 </button>
                 <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton1">
-                <li><a className="dropdown-item" href={link}>Fashon</a></li>
+                <li><a className="dropdown-item" href={link}>Fashion</a></li>
                 <li><a className="dropdown-item" href={link}>Home & Living</a></li>
                 <li><a className="dropdown-item" href={link}>Electronics</a></li>
                 <li><a className="dropdown-item" href={link}>Groceries</a></li>

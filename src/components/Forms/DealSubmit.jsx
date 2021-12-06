@@ -3,13 +3,14 @@ import Footer from "../Footer";
 import { useState } from "react/cjs/react.development";
 import { useForm } from "react-hook-form";
 
+
 const DealSubmit = () =>{
-    
 
     const[deal, setDeal]= useState({
         dealLink:"",
         dealTitle:"",
         dealPrice:"",
+        dealCategory:"",
         dealImage:""
     });
 
@@ -17,7 +18,7 @@ const DealSubmit = () =>{
 
     const handleChange = (event) =>{
         const {name, value} = event.target;
-         setDeal({...deal, [name]: value});
+        setDeal({...deal, [name]: value});
     }
 
     const { register, handleSubmit, errors } = useForm();
@@ -27,17 +28,17 @@ const DealSubmit = () =>{
             dealLink:"",
             dealTitle:"",
             dealPrice:"",
+            dealCategory:"",
             dealImage:""
         });
-
     }
 
     return(
         <>
             <Navbar/>
             <div class="container-sm d-flex justify-content-center deal_submit_form">
-                <form class="col-sm-6 m-5" onSubmit={handleSubmit(onSubmit)}>
-                    <div class="form_title mb-5 text-center"><h1>Submit a deal</h1></div>
+                <form class="col-sm-6 m-3" onSubmit={handleSubmit(onSubmit)}>
+                    <div class="form_title mb-4 text-center"><h1>Submit a deal</h1></div>
                     <div class="form-row row justify-content-center">
                         <div class="form-group col-10 mb-3">
                             <label for="dealLink">Product Link</label>
@@ -55,16 +56,26 @@ const DealSubmit = () =>{
                             <p className="warning">{errors.dealPrice?.message}</p>
                         </div>
                         <div class="form-group col-10 mb-3">
+                        <label for="dealCategory">Product Category</label>
+                        <select class="form-select" name="dealCategory" ref={register({ required: "product category is required" })} onChange={handleChange}>
+                            <option value="">All</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Home & Living">Home & Living</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Sports & Outdoors">Sports & Outdoors</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Vehicles">Vehicles</option>
+                            <option value="Healthy & Beauty">Healthy & Beauty</option>
+                        </select>
+                        <p className="warning">{errors.dealCategory?.message}</p>
+                        </div>
+                        <div class="form-group col-10 mb-3">
                             <label for="dealImage">Product Image</label>
                             <input type="file" class="form-control" name="dealImage" ref={register({ required: "product image is required" })} value={deal.dealImage} onChange={handleChange}  />
                             <p className="warning">{errors.dealImage?.message}</p>
-                        </div>
-                        <div class="form-group col-10 mb-3">
-                            <div className="mb-3" >Deal Category (select at least one):</div>
-                            <button className="category_name">Sports</button>
-                            <button className="category_name">Sports</button>
-                            <button className="category_name">Sports</button>
-                        </div>
+                        </div>                        
                         <div class="form-group col-10 mb-4">
                         <button type="submit" class="container btn btn-primary">Submit Deal</button>
                         </div>
